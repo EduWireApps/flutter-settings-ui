@@ -15,6 +15,7 @@ class SettingsTile extends StatelessWidget {
   final Widget? trailing;
   final Icon? iosChevron;
   final EdgeInsetsGeometry? iosChevronPadding;
+  final bool iosChevronEnabled = true;
   final VoidCallback? onTap;
   final Function(BuildContext context)? onPressed;
   final Function(bool value)? onToggle;
@@ -115,8 +116,8 @@ class SettingsTile extends StatelessWidget {
         labelMaxLines: titleMaxLines,
         value: subtitle,
         trailing: trailing,
-        iosChevron: iosChevron,
-        iosChevronPadding: iosChevronPadding,
+        iosChevron: iosChevronEnabled ? iosChevron : null,
+        iosChevronPadding: iosChevronEnabled ? iosChevronPadding : null,
         hasDetails: false,
         leading: leading,
         onPress: onTapFunction(context) as void Function()?,
