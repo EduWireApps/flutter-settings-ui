@@ -142,7 +142,7 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
     rowChildren.add(Expanded(
       child: Padding(
         padding: const EdgeInsetsDirectional.only(
-          start: 15.0,
+          start: 0,
           end: 0,
         ),
         child: titleSection,
