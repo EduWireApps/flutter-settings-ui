@@ -67,6 +67,7 @@ class SettingsTile extends StatelessWidget {
   })  : _tileType = _SettingsTileType.switchTile,
         onTap = null,
         onPressed = null,
+        iosChevronEnabled = true,
         iosChevron = null,
         iosChevronPadding = null,
         assert(titleMaxLines == null || titleMaxLines > 0),
