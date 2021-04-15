@@ -15,7 +15,7 @@ class SettingsTile extends StatelessWidget {
   final Widget? trailing;
   final Icon? iosChevron;
   final EdgeInsetsGeometry? iosChevronPadding;
-  final bool iosChevronEnabled = true;
+  final bool? iosChevronEnabled;
   final VoidCallback? onTap;
   final Function(BuildContext context)? onPressed;
   final Function(bool value)? onToggle;
@@ -34,6 +34,7 @@ class SettingsTile extends StatelessWidget {
     this.subtitleMaxLines,
     this.leading,
     this.trailing,
+    this.iosChevronEnabled = true,
     this.iosChevron = defaultCupertinoForwardIcon,
     this.iosChevronPadding = defaultCupertinoForwardPadding,
     @Deprecated('Use onPressed instead') this.onTap,
@@ -116,8 +117,8 @@ class SettingsTile extends StatelessWidget {
         labelMaxLines: titleMaxLines,
         value: subtitle,
         trailing: trailing,
-        iosChevron: iosChevronEnabled ? iosChevron : null,
-        iosChevronPadding: iosChevronEnabled ? iosChevronPadding : null,
+        iosChevron: (iosChevronEnabled == null || iosChevronEnabled == true) ? iosChevron : null,
+        iosChevronPadding: (iosChevronEnabled == null || iosChevronEnabled == true) ? iosChevronPadding : null,
         hasDetails: false,
         leading: leading,
         onPress: onTapFunction(context) as void Function()?,
