@@ -173,7 +173,7 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
 
       case SettingsItemType.modal:
         if (widget.value == null) {
-          rowChildren.add(_spacer);
+          //rowChildren.add(_spacer);
         } else {
           rowChildren.add(
             Expanded(
