@@ -175,6 +175,26 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
         if (widget.value == null) {
           rowChildren.add(_spacer);
         } else {
+          rowChildren.add(
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: 1.5,
+                  end: 2.25,
+                ),
+                child: Text(
+                  widget.value!,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.end,
+                  style: widget.valueTextStyle ??
+                      TextStyle(
+                        color: CupertinoColors.inactiveGray,
+                        fontSize: 16,
+                      ),
+                ),
+              ),
+            ),
+          );
         }
 
         final List<Widget> endRowChildren = [];
