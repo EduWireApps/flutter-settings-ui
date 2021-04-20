@@ -142,33 +142,36 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
     rowChildren.add(Expanded(
       child: Padding(
         padding: const EdgeInsetsDirectional.only(
-          start: 15.0,
-          end: 15.0,
+          start: 0,
+          end: 0,
         ),
         child: titleSection,
       ),
     ));
 
-    if (widget.type == SettingsItemType.toggle) {
-      rowChildren
-        ..add(
-          Padding(
-            padding: const EdgeInsetsDirectional.only(end: 11.0),
-            child: CupertinoSwitch(
-              value: widget.switchValue!,
-              activeColor: widget.enabled
-                  ? (widget.switchActiveColor ??
-                      Theme.of(context).accentColor)
-                  : CupertinoColors.inactiveGray,
-              onChanged: !widget.enabled
-                  ? null
-                  : (bool value) {
-                      widget.onToggle!(value);
-                    },
+    switch (widget.type) {
+      case SettingsItemType.toggle:
+        rowChildren
+          ..add(
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 11.0),
+              child: CupertinoSwitch(
+                value: widget.switchValue!,
+                activeColor: widget.enabled
+                    ? (widget.switchActiveColor ??
+                        Theme.of(context).accentColor)
+                    : CupertinoColors.inactiveGray,
+                onChanged: !widget.enabled
+                    ? null
+                    : (bool value) {
+                        widget.onToggle!(value);
+                      },
+              ),
             ),
-          ),
-        );
-    }
+          );
+        break;
+
+      case SettingsItemType.modal:
 
         final List<Widget> endRowChildren = [];
         if (widget.trailing != null) {
@@ -195,7 +198,7 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
           );
         }
 
-        endRowChildren.add(const SizedBox(width: 8.5));
+        //endRowChildren.add(const SizedBox(width: 8.5));
 
         rowChildren.add(
           Row(
