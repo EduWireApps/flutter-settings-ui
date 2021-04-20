@@ -149,52 +149,26 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
       ),
     ));
 
-    switch (widget.type) {
-      case SettingsItemType.toggle:
-        rowChildren
-          ..add(
-            Padding(
-              padding: const EdgeInsetsDirectional.only(end: 11.0),
-              child: CupertinoSwitch(
-                value: widget.switchValue!,
-                activeColor: widget.enabled
-                    ? (widget.switchActiveColor ??
-                        Theme.of(context).accentColor)
-                    : CupertinoColors.inactiveGray,
-                onChanged: !widget.enabled
-                    ? null
-                    : (bool value) {
-                        widget.onToggle!(value);
-                      },
-              ),
+    if (widget.type == SettingsItemType.toggle) {
+      rowChildren
+        ..add(
+          Padding(
+            padding: const EdgeInsetsDirectional.only(end: 11.0),
+            child: CupertinoSwitch(
+              value: widget.switchValue!,
+              activeColor: widget.enabled
+                  ? (widget.switchActiveColor ??
+                      Theme.of(context).accentColor)
+                  : CupertinoColors.inactiveGray,
+              onChanged: !widget.enabled
+                  ? null
+                  : (bool value) {
+                      widget.onToggle!(value);
+                    },
             ),
-          );
-        break;
-
-      case SettingsItemType.modal:
-        if (widget.value == null) {
-          rowChildren.add(_spacer);
-        } else {
-          rowChildren.add(
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsetsDirectional.only(
-                  top: 1.5,
-                  end: 2.25,
-                ),
-                child: Text(
-                  widget.value!,
-                  overflow: TextOverflow.ellipsis,
-                  style: widget.valueTextStyle ??
-                      TextStyle(
-                        color: CupertinoColors.inactiveGray,
-                        fontSize: 16,
-                      ),
-                ),
-              ),
-            ),
-          );
-        }
+          ),
+        );
+    }
 
         final List<Widget> endRowChildren = [];
         if (widget.trailing != null) {
