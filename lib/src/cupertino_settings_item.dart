@@ -222,7 +222,7 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
           );
         }
 
-        endRowChildren.add(const SizedBox(width: 8.5));
+        //endRowChildren.add(const SizedBox(width: 8.5));
 
         rowChildren.add(
           Row(
