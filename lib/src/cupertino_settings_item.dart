@@ -11,7 +11,7 @@ enum SettingsItemType {
 
 typedef void PressOperationCallback();
 
-const _spacer = Expanded(child: SizedBox.shrink());
+const _spacer = Expanded(child: SizedBox(width: 5));
 
 class CupertinoSettingsItem extends StatefulWidget {
   const CupertinoSettingsItem({
