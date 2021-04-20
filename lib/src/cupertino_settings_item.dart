@@ -185,6 +185,7 @@ class CupertinoSettingsItemState extends State<CupertinoSettingsItem> {
                 child: Text(
                   widget.value!,
                   overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.end,
                   style: widget.valueTextStyle ??
                       TextStyle(
                         color: CupertinoColors.inactiveGray,
