@@ -92,7 +92,7 @@ class SettingsSection extends AbstractSection {
           child: subtitle,
         ),
       ListView.separated(
-        padding: showBottomDivider ? null : const EdgeInsets.only(bottom: 15, top: 10),
+        padding: showBottomDivider ? null : const EdgeInsets.only(bottom: 15, top: 15),
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: tiles!.length,
